@@ -1,0 +1,328 @@
+@ Stage 4
+2022-08-29 23:55:22 | INFO | fairseq_cli.train | Namespace(activation_fn='gelu', adam_betas='(0.9, 0.98)', adam_eps=1e-06, adaptive_softmax_cutoff=None, adaptive_softmax_dropout=0, all_gather_list_size=16384, arch='mbart_base', attention_dropout=0.0, batch_size=32, batch_size_valid=32, best_checkpoint_metric='bleu', bf16=False, bpe='sentencepiece', broadcast_buffers=False, bucket_cap_mb=25, checkpoint_shard_count=1, checkpoint_suffix='', clip_norm=0.0, cpu=False, criterion='label_smoothed_cross_entropy', cross_self_attention=False, curriculum=0, data='/home/cluster/jgu/scratch/ssr/cli/out/mix/python/data-bin', data_buffer_size=10, dataset_impl=None, ddp_backend='no_c10d', decoder_attention_heads=12, decoder_embed_dim=768, decoder_embed_path=None, decoder_ffn_embed_dim=3072, decoder_input_dim=768, decoder_layerdrop=0, decoder_layers=6, decoder_layers_to_keep=None, decoder_learned_pos=True, decoder_normalize_before=False, decoder_output_dim=768, device_id=0, disable_validation=False, distributed_backend='nccl', distributed_init_method=None, distributed_no_spawn=False, distributed_num_procs=1, distributed_port=-1, distributed_rank=0, distributed_world_size=1, distributed_wrapper='DDP', dropout=0.1, dstore_filename='/home/cluster/jgu/scratch/ssr/cli/out/mix/python/full_datastore', dstore_fp16=True, dstore_size=601026, empty_cache_freq=0, encoder_attention_heads=12, encoder_embed_dim=768, encoder_embed_path=None, encoder_ffn_embed_dim=3072, encoder_layerdrop=0, encoder_layers=6, encoder_layers_to_keep=None, encoder_learned_pos=True, encoder_normalize_before=False, end_learning_rate=0.0, eval_bleu=True, eval_bleu_args='{"beam": 6}', eval_bleu_detok='space', eval_bleu_detok_args=None, eval_bleu_print_samples=False, eval_bleu_remove_bpe='sentencepiece', eval_tokenized_bleu=True, fast_stat_sync=False, find_unused_parameters=False, finetune_from_model=None, fix_batches_to_gpus=False, fixed_validation_seed=None, force_anneal=None, fp16=False, fp16_init_scale=128, fp16_no_flatten_grads=False, fp16_scale_tolerance=0.0, fp16_scale_window=None, gen_subset='test', ignore_prefix_size=0, k=2, keep_best_checkpoints=-1, keep_interval_updates=-1, keep_last_epochs=-1, knn_lambda=0.5, knn_sim_metric='IP', knn_temperature=10.0, label_smoothing=0.1, langs='java,python,en_XX', layernorm_embedding=True, left_pad_source='True', left_pad_target='False', load_alignments=False, localsgd_frequency=3, log_format='json', log_interval=100, lr=[5e-05], lr_scheduler='polynomial_decay', max_epoch=1, max_source_positions=1024, max_target_positions=1024, max_tokens=None, max_tokens_valid=None, max_update=0, maximize_best_checkpoint_metric=True, memory_efficient_bf16=False, memory_efficient_fp16=False, min_loss_scale=0.0001, min_lr=-1.0, model_parallel_size=1, move_dstore_to_mem=True, no_cross_attention=False, no_epoch_checkpoints=True, no_last_checkpoints=False, no_progress_bar=False, no_save=False, no_save_optimizer_state=False, no_scale_embedding=False, no_seed_provided=False, no_token_positional_embeddings=False, nprocs_per_node=1, num_batch_buckets=0, num_shards=1, num_workers=1, only_train_final_output=False, optimizer='adam', optimizer_overrides='{}', partially_finetune=True, patience=5, pipeline_balance=None, pipeline_checkpoint='never', pipeline_chunks=0, pipeline_decoder_balance=None, pipeline_decoder_devices=None, pipeline_devices=None, pipeline_encoder_balance=None, pipeline_encoder_devices=None, pipeline_model_parallel=False, pooler_activation_fn='tanh', pooler_dropout=0.0, power=1.0, prepend_bos=False, probe=32, profile=False, quant_noise_pq=0, quant_noise_pq_block_size=8, quant_noise_scalar=0, quantization_config_path=None, relu_dropout=0.0, report_accuracy=False, required_batch_size_multiple=8, required_seq_len_multiple=1, reset_dataloader=True, reset_lr_scheduler=True, reset_meters=True, reset_optimizer=True, restore_file='/home/cluster/jgu/scratch/ssr/cli/out/mix/full_base_python_en_XX/checkpoint_best.pt', save_dir='/home/cluster/jgu/scratch/ssr/cli/out/mix/full_ada_normal_python_en_XX', save_interval=1, save_interval_updates=0, scoring='bleu', seed=42, sentence_avg=False, sentencepiece_model='/home/cluster/jgu/scratch/ssr/cli/sentencepiece/sentencepiece.bpe.model', shard_id=0, share_all_embeddings=True, share_decoder_input_output_embed=True, skip_invalid_size_inputs_valid_test=False, slowmo_algorithm='LocalSGD', slowmo_momentum=None, source_lang='python', stop_time_hours=0, target_lang='en_XX', task='translation_from_pretrained_bart', tensorboard_logdir=None, threshold_loss_scale=None, tokenizer=None, total_num_update=1000000, tpu=False, train_subset='train', truncate_source=False, update_freq=[1], upsample_primary=1, use_bmuf=False, use_gpu_to_search=True, use_knn_datastore=True, use_old_adam=False, user_dir='/home/cluster/jgu/scratch/ssr/cli', valid_subset='valid', validate_after_updates=0, validate_interval=1, validate_interval_updates=0, warmup_updates=1000, weight_decay=0.0, zero_sharding='none')
+2022-08-29 23:55:23 | INFO | fairseq.tasks.translation | [python] dictionary: 50001 types
+2022-08-29 23:55:23 | INFO | fairseq.tasks.translation | [en_XX] dictionary: 50001 types
+2022-08-29 23:55:23 | INFO | fairseq.data.data_utils | loaded 18505 examples from: /home/cluster/jgu/scratch/ssr/cli/out/mix/python/data-bin/valid.python-en_XX.python
+2022-08-29 23:55:23 | INFO | fairseq.data.data_utils | loaded 18505 examples from: /home/cluster/jgu/scratch/ssr/cli/out/mix/python/data-bin/valid.python-en_XX.en_XX
+2022-08-29 23:55:23 | INFO | fairseq.tasks.translation | /home/cluster/jgu/scratch/ssr/cli/out/mix/python/data-bin valid python-en_XX 18505 examples
+put index from cpu to gpu
+Reading datastore took 1.716653823852539 s
+the datastore is /home/cluster/jgu/scratch/ssr/cli/out/mix/python/full_datastore, size is 601026, and dim is 768 
+Loading to memory...
+Loading to memory took 2.0798306465148926 s
+2022-08-29 23:55:35 | INFO | fairseq_cli.train | BARTModel(
+  (encoder): TransformerEncoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(50005, 768, padding_idx=1)
+    (embed_positions): LearnedPositionalEmbedding(1026, 768, padding_idx=1)
+    (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (layers): ModuleList(
+      (0): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerEncoderLayer(
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (dropout_module): FairseqDropout()
+        (activation_dropout_module): FairseqDropout()
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+  )
+  (decoder): TransformerDecoder(
+    (dropout_module): FairseqDropout()
+    (embed_tokens): Embedding(50005, 768, padding_idx=1)
+    (embed_positions): LearnedPositionalEmbedding(1026, 768, padding_idx=1)
+    (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    (layers): ModuleList(
+      (0): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (1): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (2): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (3): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (4): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+      (5): TransformerDecoderLayer(
+        (dropout_module): FairseqDropout()
+        (self_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (activation_dropout_module): FairseqDropout()
+        (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (encoder_attn): MultiheadAttention(
+          (dropout_module): FairseqDropout()
+          (k_proj): Linear(in_features=768, out_features=768, bias=True)
+          (v_proj): Linear(in_features=768, out_features=768, bias=True)
+          (q_proj): Linear(in_features=768, out_features=768, bias=True)
+          (out_proj): Linear(in_features=768, out_features=768, bias=True)
+        )
+        (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        (fc1): Linear(in_features=768, out_features=3072, bias=True)
+        (fc2): Linear(in_features=3072, out_features=768, bias=True)
+        (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+      )
+    )
+    (adaptive_block): AdaptiveBlock(
+      (fc_unit): Linear(in_features=768, out_features=768, bias=False)
+      (fc_unit2): Linear(in_features=768, out_features=768, bias=False)
+      (fc_zero): Linear(in_features=768, out_features=768, bias=False)
+      (fc_zero2): Linear(in_features=768, out_features=768, bias=False)
+    )
+    (output_projection): Linear(in_features=768, out_features=50005, bias=False)
+  )
+  (classification_heads): ModuleDict()
+)
+2022-08-29 23:55:35 | INFO | fairseq_cli.train | task: translation_from_pretrained_bart (TranslationFromPretrainedBARTTask)
+2022-08-29 23:55:35 | INFO | fairseq_cli.train | model: mbart_base (BARTModel)
+2022-08-29 23:55:35 | INFO | fairseq_cli.train | criterion: label_smoothed_cross_entropy (LabelSmoothedCrossEntropyCriterion)
+2022-08-29 23:55:35 | INFO | fairseq_cli.train | num. model params: 141580032 (num. trained: 2359296)
+2022-08-29 23:55:36 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.embed_tokens.weight
+2022-08-29 23:55:36 | INFO | fairseq.trainer | detected shared parameter: encoder.embed_tokens.weight <- decoder.output_projection.weight
+2022-08-29 23:55:36 | INFO | fairseq.trainer | detected shared parameter: decoder.adaptive_block.fc_unit.bias <- decoder.adaptive_block.fc_unit2.bias
+2022-08-29 23:55:36 | INFO | fairseq.trainer | detected shared parameter: decoder.adaptive_block.fc_unit.bias <- decoder.adaptive_block.fc_zero.bias
+2022-08-29 23:55:36 | INFO | fairseq.trainer | detected shared parameter: decoder.adaptive_block.fc_unit.bias <- decoder.adaptive_block.fc_zero2.bias
+2022-08-29 23:55:36 | INFO | fairseq.trainer | detected shared parameter: decoder.adaptive_block.fc_unit.bias <- decoder.output_projection.bias
+2022-08-29 23:55:36 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2022-08-29 23:55:36 | INFO | fairseq.utils | rank   0: capabilities =  3.7  ; total memory = 11.173 GB ; name = Tesla K80                               
+2022-08-29 23:55:36 | INFO | fairseq.utils | ***********************CUDA enviroments for all 1 workers***********************
+2022-08-29 23:55:36 | INFO | fairseq_cli.train | training on 1 devices (GPUs/TPUs)
+2022-08-29 23:55:36 | INFO | fairseq_cli.train | max tokens per GPU = None and max sentences per GPU = 32
+-----------------knn load part of model-----------------
+2022-08-29 23:55:45 | INFO | fairseq.trainer | loaded checkpoint /home/cluster/jgu/scratch/ssr/cli/out/mix/full_base_python_en_XX/checkpoint_best.pt (epoch 26 @ 0 updates)
+2022-08-29 23:55:45 | INFO | fairseq.trainer | loading train data for epoch 1
+2022-08-29 23:55:46 | INFO | fairseq.data.data_utils | loaded 55538 examples from: /home/cluster/jgu/scratch/ssr/cli/out/mix/python/data-bin/train.python-en_XX.python
+2022-08-29 23:55:46 | INFO | fairseq.data.data_utils | loaded 55538 examples from: /home/cluster/jgu/scratch/ssr/cli/out/mix/python/data-bin/train.python-en_XX.en_XX
+2022-08-29 23:55:46 | INFO | fairseq.tasks.translation | /home/cluster/jgu/scratch/ssr/cli/out/mix/python/data-bin train python-en_XX 55538 examples
+2022-08-29 23:55:46 | INFO | fairseq.trainer | begin training epoch 1
+2022-08-29 23:56:31 | INFO | train_inner | {"epoch": 1, "update": 0.058, "loss": "2.908", "nll_loss": "0.849", "ppl": "1.8", "wps": "916.8", "ups": "2.23", "wpb": "411.6", "bsz": "31.9", "num_updates": "100", "lr": "5e-06", "gnorm": "1.353", "train_wall": "45", "wall": "56"}
+2022-08-29 23:57:13 | INFO | train_inner | {"epoch": 1, "update": 0.115, "loss": "2.842", "nll_loss": "0.811", "ppl": "1.75", "wps": "962.7", "ups": "2.37", "wpb": "406.5", "bsz": "32", "num_updates": "200", "lr": "1e-05", "gnorm": "1.245", "train_wall": "42", "wall": "98"}
+2022-08-29 23:57:58 | INFO | train_inner | {"epoch": 1, "update": 0.173, "loss": "2.813", "nll_loss": "0.79", "ppl": "1.73", "wps": "928.2", "ups": "2.23", "wpb": "416.3", "bsz": "32", "num_updates": "300", "lr": "1.5e-05", "gnorm": "1.205", "train_wall": "45", "wall": "143"}
+2022-08-29 23:58:41 | INFO | train_inner | {"epoch": 1, "update": 0.23, "loss": "2.794", "nll_loss": "0.786", "ppl": "1.72", "wps": "938.1", "ups": "2.36", "wpb": "398.1", "bsz": "32", "num_updates": "400", "lr": "2e-05", "gnorm": "1.191", "train_wall": "42", "wall": "185"}
+2022-08-29 23:59:22 | INFO | train_inner | {"epoch": 1, "update": 0.288, "loss": "2.761", "nll_loss": "0.757", "ppl": "1.69", "wps": "993.1", "ups": "2.45", "wpb": "404.7", "bsz": "32", "num_updates": "500", "lr": "2.5e-05", "gnorm": "1.155", "train_wall": "41", "wall": "226"}
+2022-08-30 00:00:08 | INFO | train_inner | {"epoch": 1, "update": 0.346, "loss": "2.76", "nll_loss": "0.766", "ppl": "1.7", "wps": "867.3", "ups": "2.15", "wpb": "402.7", "bsz": "32", "num_updates": "600", "lr": "3e-05", "gnorm": "1.163", "train_wall": "46", "wall": "272"}
+2022-08-30 00:00:58 | INFO | train_inner | {"epoch": 1, "update": 0.403, "loss": "2.76", "nll_loss": "0.765", "ppl": "1.7", "wps": "847.6", "ups": "2.01", "wpb": "422.3", "bsz": "32", "num_updates": "700", "lr": "3.5e-05", "gnorm": "1.119", "train_wall": "50", "wall": "322"}
+2022-08-30 00:01:48 | INFO | train_inner | {"epoch": 1, "update": 0.461, "loss": "2.744", "nll_loss": "0.755", "ppl": "1.69", "wps": "831.9", "ups": "1.99", "wpb": "418.6", "bsz": "32", "num_updates": "800", "lr": "4e-05", "gnorm": "1.092", "train_wall": "50", "wall": "373"}
+2022-08-30 00:02:33 | INFO | train_inner | {"epoch": 1, "update": 0.518, "loss": "2.709", "nll_loss": "0.72", "ppl": "1.65", "wps": "880.8", "ups": "2.25", "wpb": "391.5", "bsz": "32", "num_updates": "900", "lr": "4.5e-05", "gnorm": "1.053", "train_wall": "44", "wall": "417"}
+2022-08-30 00:03:10 | INFO | train_inner | {"epoch": 1, "update": 0.576, "loss": "2.669", "nll_loss": "0.679", "ppl": "1.6", "wps": "1035.2", "ups": "2.64", "wpb": "391.9", "bsz": "32", "num_updates": "1000", "lr": "5e-05", "gnorm": "1.047", "train_wall": "38", "wall": "455"}
+2022-08-30 00:03:56 | INFO | train_inner | {"epoch": 1, "update": 0.634, "loss": "2.7", "nll_loss": "0.711", "ppl": "1.64", "wps": "926.8", "ups": "2.22", "wpb": "418.2", "bsz": "32", "num_updates": "1100", "lr": "4.9995e-05", "gnorm": "1.036", "train_wall": "45", "wall": "500"}
+2022-08-30 00:04:43 | INFO | train_inner | {"epoch": 1, "update": 0.691, "loss": "2.699", "nll_loss": "0.706", "ppl": "1.63", "wps": "885.7", "ups": "2.09", "wpb": "424.1", "bsz": "32", "num_updates": "1200", "lr": "4.999e-05", "gnorm": "1", "train_wall": "48", "wall": "548"}
+2022-08-30 00:05:27 | INFO | train_inner | {"epoch": 1, "update": 0.749, "loss": "2.661", "nll_loss": "0.672", "ppl": "1.59", "wps": "950.4", "ups": "2.29", "wpb": "414.9", "bsz": "32", "num_updates": "1300", "lr": "4.9985e-05", "gnorm": "0.962", "train_wall": "44", "wall": "592"}
+2022-08-30 00:06:10 | INFO | train_inner | {"epoch": 1, "update": 0.806, "loss": "2.65", "nll_loss": "0.659", "ppl": "1.58", "wps": "991.5", "ups": "2.35", "wpb": "421.4", "bsz": "32", "num_updates": "1400", "lr": "4.998e-05", "gnorm": "0.944", "train_wall": "42", "wall": "634"}
+2022-08-30 00:07:02 | INFO | train_inner | {"epoch": 1, "update": 0.864, "loss": "2.703", "nll_loss": "0.715", "ppl": "1.64", "wps": "811.7", "ups": "1.91", "wpb": "424.6", "bsz": "32", "num_updates": "1500", "lr": "4.9975e-05", "gnorm": "0.959", "train_wall": "52", "wall": "686"}
+2022-08-30 00:07:42 | INFO | train_inner | {"epoch": 1, "update": 0.922, "loss": "2.615", "nll_loss": "0.628", "ppl": "1.55", "wps": "949.5", "ups": "2.46", "wpb": "385.5", "bsz": "32", "num_updates": "1600", "lr": "4.997e-05", "gnorm": "0.921", "train_wall": "40", "wall": "727"}
+2022-08-30 00:08:29 | INFO | train_inner | {"epoch": 1, "update": 0.979, "loss": "2.634", "nll_loss": "0.646", "ppl": "1.56", "wps": "893.5", "ups": "2.14", "wpb": "417.4", "bsz": "32", "num_updates": "1700", "lr": "4.9965e-05", "gnorm": "0.932", "train_wall": "47", "wall": "774"}
+2022-08-30 00:08:43 | INFO | fairseq_cli.train | begin validation on "valid" subset
+/net/cephfs/scratch/jgu/ssr/fairseq/utils.py:342: UserWarning: amp_C fused kernels unavailable, disabling multi_tensor_l2norm; you may get better performance by installing NVIDIA's apex library
+  "amp_C fused kernels unavailable, disabling multi_tensor_l2norm; "
+2022-08-30 00:34:40 | INFO | valid | {"epoch": 1, "valid_loss": "6.341", "valid_nll_loss": "4.818", "valid_ppl": "28.21", "valid_bleu": "21.12", "valid_wps": "152.9", "valid_wpb": "411.1", "valid_bsz": "32", "valid_num_updates": "1736"}
+2022-08-30 00:34:40 | INFO | fairseq_cli.train | begin save checkpoint
+2022-08-30 00:34:42 | INFO | fairseq.checkpoint_utils | saved checkpoint /home/cluster/jgu/scratch/ssr/cli/out/mix/full_ada_normal_python_en_XX/checkpoint_best.pt (epoch 1 @ 1736 updates, score 21.12) (writing took 2.285682789981365 seconds)
+2022-08-30 00:34:42 | INFO | fairseq_cli.train | end of epoch 1 (average epoch stats below)
+2022-08-30 00:34:42 | INFO | train | {"epoch": 1, "train_loss": "2.729", "train_nll_loss": "0.729", "train_ppl": "1.66", "train_wps": "304.7", "train_ups": "0.74", "train_wpb": "410.2", "train_bsz": "32", "train_num_updates": "1736", "train_lr": "4.99632e-05", "train_gnorm": "1.078", "train_train_wall": "775", "train_wall": "2347"}
+2022-08-30 00:34:42 | INFO | fairseq_cli.train | done training in 2336.6 seconds
+/net/cephfs/scratch/jgu/ssr/fairseq/search.py:140: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  beams_buf = indices_buf // vocab_size
+/net/cephfs/scratch/jgu/ssr/fairseq/sequence_generator.py:651: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  unfin_idx = idx // beam_size
+@ Completed
+@ Stage 5
+/net/cephfs/scratch/jgu/ssr/fairseq/search.py:140: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  beams_buf = indices_buf // vocab_size
+/net/cephfs/scratch/jgu/ssr/fairseq/sequence_generator.py:651: UserWarning: __floordiv__ is deprecated, and its behavior will change in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values. To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor').
+  unfin_idx = idx // beam_size
+WARNING (theano.tensor.blas): We did not find a dynamic library in the library_dir of the library we use for blas. If you use ATLAS, make sure to compile it with dynamics library.
+c_bleu = 28.95 | s_bleu = 36.38 | meteor = 23.65 | rouge = 46.08
+rouge_coco = 51.79
+@ Completed
