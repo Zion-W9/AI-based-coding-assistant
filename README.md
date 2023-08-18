@@ -2,6 +2,8 @@
 
 We've developed an AI-powered code generation extension for VScode. This model leverages the capabilities of CodeT5 combined with retrieval enhancement technology. The user interface and interaction are facilitated through [CodeGeex](https://github.com/THUDM/CodeGeeX).
 
+![Demo](https://github.com/Zion-W9/AI-based-coding-assistant/blob/main/20230416_234219.gif)
+
 **Experiments and Results**
 
 **Dataset:** CoNaLa
