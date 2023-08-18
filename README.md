@@ -7,8 +7,8 @@ We've developed an AI-powered code generation extension for VScode. This model l
 **Dataset:** CoNaLa
 
 **Experiment Settings:**
-- [Environment Configuration](https://github.com/Zion-W9/AI-based-coding-assistant/Experiment1.jpg)
-- [Model Hyperparameter Settings](https://github.com/Zion-W9/AI-based-coding-assistant/Experiment2.jpg)
+- [Environment Configuration](https://github.com/Zion-W9/AI-based-coding-assistant/blob/main/Experiment1.jpg)
+- [Model Hyperparameter Settings](https://github.com/Zion-W9/AI-based-coding-assistant/blob/main/Experiment2.jpg)
 
 **Experimental Results and Comparative Analysis:**
 
@@ -20,7 +20,7 @@ For our research, we use the CodeT5 model as the foundational baseline and integ
 
 Based on these models, our research encompasses the following experiments:
 
-[Results](https://github.com/Zion-W9/AI-based-coding-assistant/Results.jpg)
+[Results](https://github.com/Zion-W9/AI-based-coding-assistant/blob/main/Results.jpg)
 
 Table 4.3 presents the model's performance on the CoNaLa dataset. "Retrieval data" denotes the dataset portion used for retrieval, while "Positive example" signifies if the retrieved data contains object code information corresponding to the natural language input.
 
